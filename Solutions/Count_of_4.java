@@ -3,6 +3,7 @@
  * http://www.geeksforgeeks.org/count-numbers-from-1-to-n-that-have-4-as-a-a-digit/
  * Approach: find the answer for 10,100,1000... store these values. now get the digits
  * one by one and multiply with stored answer accordingly
+ * similar to: http://www.geeksforgeeks.org/count-sum-of-digits-in-numbers-from-1-to-n/
  * i.e
  * 123
  * 10->1
