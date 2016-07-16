@@ -13,26 +13,32 @@ public class Coin_Problem
             coins[i]=sc.nextInt();
         }
         int n=sc.nextInt();
-        int ans=count_coin(n,coins);
-        System.out.println("ans is:"+ans);
+        int[] array=new int[n+1];
+        int ans=count_coin(n,coins,array);
+        System.out.println("ans is:"+ ans);
     }
-    public static int count_coin(int n,int[] coin)
+    public static int count_coin(int n,int[] coin,int[] array)
     {
-        int len=coin.length;
-        for(int i=0;i<len;i++)
-        {
-            if(coin[i]==n)
-                return 1;
-        }
-        int p=0;
-        int min=n;
-        for(int i=0;i<len;i++)
-        {
-            if(n-coin[i]>=0)
-                p=1+count_coin(n-coin[i],coin);
-            if(p<min && p!=0)
-                min=p;
-        }
-        return min;
+       int min=n;
+       for(int i=0;i<coin.length;i++)
+       {
+           if(n-coin[i]>0)
+           {
+               int temp=0;
+               if(array[n-coin[i]]==0)
+                     temp=1+count_coin(n-coin[i],coin,array);
+               else
+                    temp=1+array[n-coin[i]];
+               if(min>temp)
+                    min=temp;
+           }
+           else if(n-coin[i]==0)
+           {
+               array[n]=1;
+               return 1;
+           }
+       }
+       array[n]=min;
+       return array[n];
     }
 }

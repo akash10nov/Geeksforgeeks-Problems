@@ -23,6 +23,7 @@ class anagrampalindrome
         Set st=hash.entrySet();
         Iterator i=st.iterator();
         int count=0;
+        int flag=0;
         while(i.hasNext())
         {
             Map.Entry m=(Map.Entry)i.next();
@@ -31,11 +32,11 @@ class anagrampalindrome
                 count++;
             if(count>1)
             {
-                System.out.println("No anagram possible");
+                
+                flag=1;
                 return;
             }
         }
-        System.out.println("palimdrome of some anagram exists");
         
                 
     }
